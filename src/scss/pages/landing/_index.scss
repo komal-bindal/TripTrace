@@ -1,0 +1,48 @@
+.landing {
+  position: relative;
+  .header {
+    position: fixed;
+    top: 40px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+  }
+  .nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30vw;
+  }
+  .container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+  .main-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    /* Add additional styling as needed */
+  }
+
+  #section1 {
+    background-color: red;
+  }
+  #section2 {
+    background-color: white;
+  }
+  #section3 {
+    background-color: green;
+  }
+  #section4 {
+    //   background-color: yellow;
+  }
+}
