@@ -14,12 +14,15 @@ function Landing() {
 
   const refScrollUp = useRef();
   const [load, setLoad] = useState(true);
+  const month = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+  
   const handleScroll = (event) => {
     console.log("User scrolled!");
   };
   useEffect(() => {
+    let monthName = month[new Date().getMonth()];
     axios
-      .get("/triptrace/rest/v1/home?month=JUNE&country=India")
+      .get(`/triptrace/rest/v1/home?month=${monthName}&country=India`)
       .then(async (response) => {
         const placeData = response.data;
         setPlaces(placeData);
