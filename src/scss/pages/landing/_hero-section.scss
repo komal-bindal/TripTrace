@@ -6,6 +6,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  .new-image {
+    opacity: 0.2 !important;
+  }
+
   .outer-area {
     height: 100%;
     width: 100%;
@@ -37,7 +41,7 @@
     transform: translate(-50%, -50%);
     background-color: black;
     border-radius: 50%;
-    border: 1px black solid;
+    // border: 1px white solid;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +78,7 @@
     transform: translate(-50%, -50%);
     background-color: black;
     border-radius: 50%;
-    border: 1px black solid;
+    // border: 1px black solid;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,15 +136,127 @@
 .city-text {
   font-size: 4.5rem;
   text-transform: uppercase;
-  letter-spacing: 3rem;
+  letter-spacing: 4rem;
+  margin-left: 4rem;
   font-weight: 600;
   font-family: "Josefin Sans";
+  text-shadow: 0.5rem 0.5rem 0.6rem black;
+  transition: opacity 0.5s ease-in-out;
 }
+.city-text.fade-out,
+.city-desc.fade-out {
+  opacity: 0;
+}
+.city-text.fade-in,
+.city-desc.fade-in {
+  opacity: 1;
+}
+
 .city-line {
   border-top: 2px solid white;
   margin: 30px 0;
   width: 30vw;
+  box-shadow: 2px 2px 20px 2px black;
+  transition: opacity 0.5s ease-in-out;
 }
 .city-desc {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  text-shadow: 0.5rem 0.5rem 1rem black;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+}
+.left-control,
+.right-control {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 20px;
+}
+.left-control:hover,
+.right-control:hover {
+  font-size: 2rem;
+  margin: 10px;
+  cursor: pointer;
+}
+.divider {
+  border-left: 1px solid white;
+  margin: 0 30px;
+  height: 40px;
+  box-shadow: 2px 2px 20px 2px black;
+}
+.discover-block {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .discover-text {
+    color: white;
+    text-shadow: 0.5rem 0.5rem 1rem black;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  // text-decoration: underline;
+  // text-underline-offset: 2px;
+  // a {
+  //   color: white;
+  //   text-decoration: none;
+  //   font-size: 1rem;
+  //   text-shadow: 0.5rem 0.5rem 1rem black;
+  // }
+}
+.discover-bubble {
+  position: absolute;
+  bottom: -1%;
+  border-radius: 50%;
+  // display: none;
+  // display: block;
+  // height: 100px;
+  // width: 100px;
+  // background-color: white;
+  // opacity: 0.5;
+  // animation: bubble 0.5s ease-in-out;
+}
+
+@keyframes bubble {
+  from {
+    border-radius: 50%;
+    display: block;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    opacity: 0.5;
+    border-radius: 50%;
+  }
+  to {
+    border-radius: 50%;
+    display: block;
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+    box-shadow: 2px 2px 30px 2px white inset;
+    border-radius: 50%;
+  }
+}
+.image-info {
+  position: absolute;
+  font-style: italic;
+  color: white;
+  bottom: 5%;
+  right: 2%;
+  text-shadow: 0.5rem 0.5rem 1rem black;
+  font-size: 0.8rem;
+  font-weight: bold;
 }

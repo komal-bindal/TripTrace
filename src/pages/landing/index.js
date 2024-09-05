@@ -12,8 +12,11 @@ function Landing() {
   const url = "https://pixabay.com/api/";
   const apiKey = "Generate your own";
 
+  const refScrollUp = useRef();
   const [load, setLoad] = useState(true);
-
+  const handleScroll = (event) => {
+    console.log("User scrolled!");
+  };
   useEffect(() => {
     axios
       .get("/triptrace/rest/v1/home?month=JUNE&country=India")
@@ -41,6 +44,11 @@ function Landing() {
       });
   }, []);
 
+  const handleScrollUp = () => {
+    console.log("call");
+    refScrollUp.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="landing">
       {!load && (
@@ -59,11 +67,15 @@ function Landing() {
               </li>
             </ul>
           </div>
-          <div className="container">
+          <div className="container" onScroll={handleScroll}>
             <div className="main-section" id="section1">
-              <HeroSection images={images} places={places} />
+              <HeroSection
+                images={images}
+                places={places}
+                handleScrollUp={handleScrollUp}
+              />
             </div>
-            <div className="main-section" id="section2">
+            <div className="main-section" id="section2" ref={refScrollUp}>
               <AboutSection />
             </div>
             <div className="main-section" id="section4">
